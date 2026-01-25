@@ -1,23 +1,602 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+
+  <!-- Schema.org FAQ 구조화 데이터 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "미술학원 인테리어 평균 비용은 얼마인가요? 2026년 최신 정보",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "미술학원 인테리어 비용은 평당 150만원부터 300만원 이상까지 다양합니다. 이는 디자인 난이도, 마감재 등급, 공간 구성(칸막이, 강의실 수), 소방/방음 시설 보강 여부, 그리고 시공 시기(성수기/비수기)에 따라 크게 달라집니다. 정확한 견적은 현장 실측을 통해 받아보는 것이 중요합니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "초등/유아 미술학원과 입시 미술학원 인테리어 디자인의 차이점은 무엇인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "초등/유아 미술학원은 아이들의 창의성을 자극하는 다채로운 색상, 친환경 마감재, 안전을 위한 모서리 처리, 충분한 수납공간 확보에 중점을 둡니다. 반면, 입시 미술학원은 높은 집중도를 요구하므로 차분한 색감, 효율적인 동선 설계, 조명 계획, 대형 이젤과 그림 보관을 위한 실용적인 레이아웃이 중요합니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "인테리어 시공 시 꼭 고려해야 할 법적 규제나 안전 기준이 있나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "미술학원은 학원법 및 건축법상 교육 연구 시설로 분류됩니다. 특히 소방안전 기준(방화문, 소화기, 스프링클러, 비상구), 방음 시설 기준, 조도 기준, 그리고 학원 설립/운영 등록 시 요구되는 면적 및 시설 기준을 충족해야 합니다. 전문 업체를 통해 법규 준수 여부를 확인해야 추가 시공이나 행정 처분을 피할 수 있습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "미술학원 인테리어 비용을 절감할 수 있는 팁이 있나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "불필요한 철거를 최소화하고, 가벽 대신 파티션이나 가구를 활용하며, 마감재 선택 시 합리적인 자재를 선택하면 비용을 절감할 수 있습니다. 또한, 성수기를 피하고 2~3곳 이상의 전문 업체로부터 상세 견적을 비교하는 것이 좋습니다."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- 스타일: 부드럽고 다채로운 색, 타이틀 강조, 계층 구조 -->
+  <style>
+    :root {
+      /* 부드러운 파스텔톤 컬러 팔레트 */
+      --primary-color: #4B86B4; /* 짙은 블루 (신뢰감) */
+      --secondary-color: #ADCBE3; /* 연한 블루 (차분함) */
+      --accent-color: #F8B195; /* 파스텔 오렌지 (창의성) */
+      --highlight-color: #E7EFF6; /* 아주 연한 배경 (가벼움) */
+      --text-color: #2D3E50; /* 어두운 텍스트 (가독성) */
+      --bg-light: #F0F4F8; /* 배경색 */
+      --bg-white: #ffffff;
+      --btn-color: #FF6F61; /* CTA 버튼 (활력) */
+      --btn-hover: #FF4F3B;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-light);
+      color: var(--text-color);
+      line-height: 1.8;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    header {
+      background-color: var(--primary-color);
+      padding: 30px 20px;
+      text-align: center;
+      color: var(--bg-white);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8em;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+    header h1 a {
+      color: var(--bg-white);
+      text-decoration: none;
+    }
+    .hero {
+      background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+      color: var(--bg-white);
+      text-align: center;
+      padding: 90px 20px;
+    }
+    .hero h1 {
+      font-size: 3.5em;
+      margin-bottom: 20px;
+      font-weight: 900;
+      line-height: 1.3;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    .hero p {
+      font-size: 1.4em;
+      margin-bottom: 35px;
+    }
+    .cta-btn {
+      background-color: var(--btn-color);
+      color: var(--bg-white);
+      padding: 18px 45px;
+      font-size: 1.3em;
+      font-weight: bold;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .cta-btn:hover {
+      background-color: var(--btn-hover);
+      transform: translateY(-3px);
+    }
+    .quote-form-box {
+      background-color: var(--bg-white);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      margin-top: 30px;
+    }
+    .quote-form-box h2 {
+      color: var(--primary-color);
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 2.2em;
+      font-weight: 700;
+    }
+    .quote-form-box p {
+      text-align: center;
+      font-size: 1.1em;
+      margin-bottom: 30px;
+      color: #555;
+    }
+    .quote-form-box label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    .quote-form-box input, .quote-form-box select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+
+    .content-section {
+      margin-top: 40px;
+      padding: 60px 0;
+    }
+    .content-section.bg-white {
+      background-color: var(--bg-white);
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .content-section h2 {
+      font-size: 2.8em;
+      color: var(--primary-color);
+      margin-bottom: 30px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .content-section h3 {
+      font-size: 1.8em;
+      color: var(--primary-color);
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    .content-section p {
+      font-size: 1.1em;
+      line-height: 1.8;
+    }
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+    .feature-grid .item {
+      width: calc(33.33% - 20px);
+      margin: 10px;
+      padding: 25px;
+      background-color: var(--highlight-color);
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+    .feature-grid .item:hover {
+        transform: translateY(-5px);
+    }
+    .feature-grid .item img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 15px;
+    }
+    .keyword-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .keyword-list li {
+      background-color: var(--secondary-color);
+      color: var(--bg-white);
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 20px;
+      font-weight: 500;
+      font-size: 0.95em;
+    }
+    .faq-item {
+      border-bottom: 1px solid #ddd;
+      padding: 20px 0;
+    }
+    .faq-item h3 {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.4em;
+      color: var(--primary-color);
+      font-weight: 700;
+      padding-bottom: 5px;
+    }
+    .faq-item h3::after {
+      content: '+';
+      font-size: 1.5em;
+      color: var(--accent-color);
+      transition: transform 0.3s;
+    }
+    .faq-item.active h3::after {
+      content: '-';
+      transform: rotate(180deg);
+    }
+    .faq-item p {
+      display: none;
+      padding-top: 10px;
+      color: #555;
+      font-size: 1.1em;
+    }
+    .faq-item.active p {
+      display: block;
+    }
+    footer {
+      background-color: var(--primary-color);
+      color: var(--bg-white);
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: var(--bg-white);
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    ul, ol {
+      padding-left: 20px;
+      margin-top: 15px;
+      font-size: 1.1em;
+      color: #444;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    .table-responsive {
+        overflow-x: auto;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-size: 1.1em;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+    }
+    th {
+        background-color: var(--highlight-color);
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.4em; }
+      .hero p { font-size: 1.2em; }
+      .cta-btn { padding: 15px 30px; font-size: 1.1em; }
+      .quote-form-box { padding: 25px; }
+      .content-section h2 { font-size: 2.2em; }
+      .feature-grid .item { width: 100%; margin: 10px 0; }
+      .keyword-list li { margin: 3px; font-size: 0.9em; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1><a href="/">미술학원 인테리어 전문 컨설팅</a></h1>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>창의적인 공간, 성공을 부르는 <br>미술학원 인테리어</h1>
+        <p>초등 미술부터 입시 미술까지, 타겟 맞춤형 디자인과 투명한 견적으로 성공적인 학원 개원을 도와드립니다.</p>
+        <div class="quote-form-box">
+          <h2>맞춤형 인테리어 견적 비교 요청</h2>
+          <p>지역별 전문 업체들의 시공 사례와 예상 비용을 한눈에 비교하고, 합리적인 견적을 받아보세요.</p>
+          <form action="#" method="post">
+            <label for="name">이름</label>
+            <input type="text" id="name" name="name" placeholder="대표자 이름을 입력하세요" required>
+            <label for="phone">연락처</label>
+            <input type="tel" id="phone" name="phone" placeholder="휴대폰 번호를 입력하세요" required>
+            <label for="area">지역 (시공 예정지)</label>
+            <input type="text" id="area" name="area" placeholder="예: 서울 강남구, 경기 일산동구" required>
+            <label for="size">평수 (면적)</label>
+            <input type="number" id="size" name="size" placeholder="예: 30평" required>
+            <label for="style">희망하는 학원 유형</label>
+            <select id="style" name="style" required>
+                <option value="">선택하세요</option>
+                <option value="elementary">초등/유아 미술학원</option>
+                <option value="exam">입시 미술학원</option>
+                <option value="hobby">성인 취미 미술학원</option>
+                <option value="general">종합 미술학원</option>
+            </select>
+            <button type="submit" class="cta-btn">무료 견적 요청하기</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section bg-white">
+      <div class="container">
+        <h2>미술학원 인테리어, 왜 전문가에게 맡겨야 할까요?</h2>
+        <div class="feature-grid">
+          <div class="item">
+            <img src="https://via.placeholder.com/80/4B86B4/fff?text=ICON1" alt="전문 디자인 아이콘">
+            <h3>미술 전문 디자인</h3>
+            <p>미술 교육 환경에 최적화된 동선, 채광, 수납공간 설계를 통해 교육 효과를 극대화합니다.</p>
+          </div>
+          <div class="item">
+            <img src="https://via.placeholder.com/80/4B86B4/fff?text=ICON2" alt="법규 준수 아이콘">
+            <h3>법규 및 안전 기준 준수</h3>
+            <p>소방, 방음, 조명 등 학원 설립 필수 법규를 완벽히 준수하여 인허가 문제를 사전에 방지합니다.</p>
+          </div>
+          <div class="item">
+            <img src="https://via.placeholder.com/80/4B86B4/fff?text=ICON3" alt="투명한 견적 아이콘">
+            <h3>투명한 견적 시스템</h3>
+            <p>복잡한 인테리어 공사 항목을 상세히 분석하여 불필요한 추가 비용 없이 정확한 예상 비용을 제시합니다.</p>
+          </div>
+        </div>
+
+        <h3 style="margin-top:50px;">함께 많이 찾는 키워드 (전국 지역별 및 용도별)</h3>
+        <ul class="keyword-list">
+          <li>#서울미술학원인테리어</li>
+          <li>#강남미술학원인테리어</li>
+          <li>#분당미술학원인테리어</li>
+          <li>#일산미술학원인테리어</li>
+          <li>#부산미술학원인테리어</li>
+          <li>#대구미술학원인테리어</li>
+          <li>#대전미술학원인테리어</li>
+          <li>#청주미술학원인테리어</li>
+          <li>#천안미술학원인테리어</li>
+          <li>#광주미술학원인테리어</li>
+          <li>#울산미술학원인테리어</li>
+          <li>#수원미술학원인테리어</li>
+          <li>#동탄미술학원인테리어</li>
+          <li>#용인미술학원인테리어</li>
+          <li>#판교미술학원인테리어</li>
+          <li>#김포미술학원인테리어</li>
+          <li>#송파미술학원인테리어</li>
+          <li>#목동미술학원인테리어</li>
+          <li>#해운대미술학원인테리어</li>
+          <li>#소규모미술학원인테리어</li>
+          <li>#입시미술학원인테리어</li>
+          <li>#초등미술학원인테리어</li>
+          <li>#미술학원인테리어비용</li>
+          <li>#학원인테리어견적비교</li>
+          <li>#미술학원인테리어추천</li>
+          <li>#미술학원인테리어후기</li>
+          <li>#미술학원인테리어저렴한곳</li>
+          <li>#미술학원인테리어장점단점</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+        <h2>미술학원 인테리어 비용: 평균 견적과 비용 절약 팁 (2026년 기준)</h2>
+        <p>미술학원 인테리어 공사는 단순한 사무실 인테리어와는 다르게 특수한 요구사항이 많아 비용 산정이 까다롭습니다. 학원 인테리어 비용은 '디자인 수준', '마감재 등급', '공사 범위', '평수'에 따라 크게 달라집니다. 특히 2026년 현재 인건비 및 자재비 상승으로 인해 과거보다 평균 비용이 증가한 추세입니다.</p>
+
+        <h3>1. 미술학원 인테리어 평당 평균 가격대 분석</h3>
+        <p>2026년 기준, 전국 미술학원 인테리어의 평당 평균 비용은 150만원에서 300만원 사이로 형성되어 있습니다. 10평~20평대의 소규모 학원 인테리어는 총액이 적더라도 평당 비용은 높게 책정될 수 있습니다. 30평 이상의 중대형 학원 인테리어는 평당 단가가 비교적 낮아질 수 있습니다. 특히 <strong>입시 미술학원 인테리어</strong>는 조명과 수납 공간에 대한 요구가 높아 일반 학원보다 비용이 높게 책정되는 경우가 많습니다.</p>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>학원 유형</th>
+                        <th>평균 평당 비용 (2026년)</th>
+                        <th>주요 비용 상승 요인</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>초등/유아 미술학원</td>
+                        <td>150만원 ~ 250만원</td>
+                        <td>친환경 마감재, 안전 시설(모서리 마감), 다채로운 색상 조합</td>
+                    </tr>
+                    <tr>
+                        <td>입시 미술학원</td>
+                        <td>200만원 ~ 300만원 이상</td>
+                        <td>대형 조명(광량 확보), 방음 시설, 대형 이젤/작품 보관 수납장, 실용적인 레이아웃</td>
+                    </tr>
+                    <tr>
+                        <td>성인 취미 미술학원</td>
+                        <td>130만원 ~ 200만원</td>
+                        <td>편안한 분위기 연출, 카페형 휴게공간, 디자인 요소 (예술적인 분위기 연출)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>2. 인테리어 비용을 결정하는 주요 요소</h3>
+        <ol>
+            <li><strong>시공 면적(평수) 및 현장 상태:</strong> 낡은 건물이나 복잡한 구조의 공간은 철거 및 보수 비용이 추가됩니다. 면적이 넓을수록 평당 단가는 낮아지지만 총 비용은 증가합니다.</li>
+            <li><strong>마감재 선택:</strong> 바닥재(강화마루, 포세린타일, 에폭시), 벽체 마감(도장, 벽지, 필름)의 종류에 따라 비용 차이가 발생합니다. 초등 학원은 친환경 자재를 사용하므로 비용이 더 높을 수 있습니다.</li>
+            <li><strong>소방 및 방음 시설:</strong> 학원 인허가 기준에 맞춰 소방 시설(스프링클러, 감지기)을 보강하거나 방음 시공(벽체 단열, 흡음재)을 하면 추가 비용이 발생합니다.</li>
+            <li><strong>가구 및 집기:</strong> 맞춤 제작 가구(책상, 수납장)나 특수 조명(레일 조명, 간접 조명)을 사용하면 비용이 상승합니다.</li>
+            <li><strong>시공 지역 및 시기:</strong> 서울 강남이나 경기 분당 같은 대도시권은 인건비 및 자재 운반비가 높게 책정됩니다. 또한, 새 학기 준비 기간인 12월~2월은 성수기로 분류되어 견적이 높아질 수 있습니다.</li>
+        </ol>
+
+        <h3>3. 합리적인 견적을 위한 비교 팁</h3>
+        <ul>
+            <li><strong>철저한 사전 계획:</strong> 어떤 유형의 학원을 운영할지, 예산은 어느 정도인지 명확히 정하고 인테리어 업체와 소통해야 합니다. 무작정 견적을 요청하기보다는 원하는 스타일의 레퍼런스 이미지를 제시하면 좋습니다.</li>
+            <li><strong>복수 견적 비교:</strong> 최소 3곳 이상의 전문 업체로부터 상세 견적을 받습니다. 단순 총액 비교보다는 항목별 견적(자재비, 인건비, 디자인비)을 꼼꼼히 대조하여 <strong>내돈내산</strong> 후기를 참고하며 합리적인 업체를 선정해야 합니다.</li>
+            <li><strong>비수기 시공 고려:</strong> 학원 개강 시즌을 피해 늦봄이나 여름철 비수기에 시공 일정을 잡으면 인건비 절약 효과를 볼 수 있습니다.</li>
+            <li><strong>불필요한 철거 최소화:</strong> 기존 공간의 장점을 살려 철거 범위를 최소화하면 비용을 크게 절감할 수 있습니다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section bg-white">
+      <div class="container">
+        <h2>미술학원 인테리어 디자인 노하우: 초등 vs 입시</h2>
+        <p>미술학원은 학생들의 연령대와 교육 목적에 따라 공간 구성이 완전히 달라져야 합니다. 초등 미술학원 인테리어는 창의성 발달과 안전이 최우선이며, 입시 미술학원 인테리어는 효율적인 작업 공간과 집중력을 위한 환경이 핵심입니다. 두 유형의 차이점을 명확히 이해하고 인테리어를 진행해야 성공적인 학원 운영이 가능합니다.</p>
+
+        <h3>1. 초등/유아 미술학원 인테리어 (창의성, 안전, 수납)</h3>
+        <p>아이들의 심리를 고려한 디자인이 중요합니다. 밝고 다채로운 색상, 친환경 마감재, 안전한 가구 배치가 필수입니다. <strong>소규모 미술학원 인테리어</strong>라도 아이들이 자유롭게 이동하며 작품 활동을 할 수 있도록 개방적인 공간 구성을 선호합니다.</p>
+        <ul>
+            <li><strong>색채 계획:</strong> 파스텔톤이나 옐로우, 그린 등 아이들의 정서를 안정시키고 상상력을 자극하는 색상을 주로 사용합니다.</li>
+            <li><strong>안전 시설:</strong> 날카로운 모서리가 없는 가구를 배치하고, 바닥재는 미끄럼 방지 기능이 있는 마루나 타일을 선택합니다.</li>
+            <li><strong>수납 공간:</strong> 아이들의 작품과 미술 도구를 깔끔하게 정리할 수 있는 오픈형 수납장 또는 다용도 선반을 충분히 확보해야 합니다.</li>
+            <li><strong>포인트 디자인:</strong> 아이들이 좋아할 만한 갤러리월(Gallery Wall)을 조성하여 작품을 전시하거나, 창가 공간을 활용한 휴게공간을 마련합니다.</li>
+        </ul>
+
+        <h3>2. 입시 미술학원 인테리어 (집중력, 실용성, 조명)</h3>
+        <p>입시 미술학원은 학생들이 장시간 집중하여 실기 연습을 하는 공간입니다. 따라서 기능적이고 실용적인 디자인이 우선됩니다. 불필요한 장식보다는 <strong>조명 계획</strong>과 <strong>수납 효율성</strong>이 중요합니다.</p>
+        <ul>
+            <li><strong>조명 계획:</strong> 실기 시험 환경과 유사하게 주광색(형광등색) 조명을 균일하게 배치하는 것이 중요합니다. 특히 작품의 색감을 정확하게 판단할 수 있도록 연색성이 높은 조명을 선택해야 합니다.</li>
+            <li><strong>레이아웃:</strong> 이젤과 책상을 효율적으로 배치하여 학생들이 서로 방해받지 않고 작업에 몰입할 수 있도록 합니다. 대형 칸막이 또는 이동식 파티션을 활용하여 공간 분할을 유연하게 할 수 있습니다.</li>
+            <li><strong>수납 및 건조 공간:</strong> 대형 작품을 보관하거나 건조하는 공간을 별도로 마련해야 합니다. 실기실 내부에 충분한 수납장을 두어 짐을 보관하고 작업 공간을 넓게 유지합니다.</li>
+            <li><strong>컬러 및 마감재:</strong> 집중도를 높이기 위해 채도가 낮은 무채색(회색, 베이지)을 기본으로 하고, 포인트 컬러로 학원의 아이덴티티를 살립니다.</li>
+        </ul>
+
+        <h3 style="margin-top:50px;">지역별 미술학원 인테리어 추천 사례</h3>
+        <p>지역별로 학원의 특성과 예산, 경쟁 환경이 다르므로 맞춤형 시공 사례가 필요합니다. 예를 들어, <strong>서울 강남/송파</strong> 지역은 고급 마감재를 사용한 프리미엄 인테리어 사례가 많으며, <strong>경기 일산/분당</strong> 지역은 트렌디한 디자인과 합리적인 가격을 동시에 추구하는 경우가 많습니다. <strong>부산/대구</strong> 지역은 쾌적한 학습 환경을 위해 넓은 개방감을 강조하는 인테리어가 선호됩니다.</p>
+
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+        <h2>미술학원 인테리어 시공 프로세스: A to Z</h2>
+        <p>미술학원 인테리어는 일반 상업 공간과 달리 인허가 과정이 복잡하므로 체계적인 프로세스 관리가 중요합니다. 다음은 성공적인 시공을 위한 표준 절차입니다.</p>
+
+        <h3>1. 상담 및 현장 실측 (디자인 및 견적 산출)</h3>
+        <p>인테리어 의뢰인이 원하는 학원 유형(초등/입시), 예산, 희망 개원일, 그리고 레퍼런스 이미지를 바탕으로 전문가와 심층 상담을 진행합니다. 현장 실측을 통해 건물 구조, 소방 시설, 전기 용량, 배관 상태 등을 정확히 파악하여 견적 산출의 기초 자료로 활용합니다.</p>
+
+        <h3>2. 디자인 설계 및 법규 검토 (학원법 및 소방법)</h3>
+        <p>상담 내용을 바탕으로 평면도(레이아웃)와 3D 시뮬레이션 작업을 진행합니다. 이 단계에서 가장 중요한 것은 <strong>학원 설립 등록 기준</strong>과 <strong>소방 안전 기준</strong>을 충족시키는 디자인을 완성하는 것입니다. 특히, 면적당 인원수, 강의실의 크기, 소화기 및 비상구 설치 기준 등을 고려해야 합니다.</p>
+
+        <h3>3. 계약 및 공사 착공 (철거, 설비, 마감)</h3>
+        <p>디자인과 견적이 확정되면 계약을 체결하고 공사를 시작합니다. 철거 작업(기존 시설물 제거)을 시작으로 전기, 소방, 설비, 목공, 도장, 바닥 마감 등 순차적으로 공사가 진행됩니다. 이 과정에서 꼼꼼한 현장 관리와 공정 스케줄 관리가 필수적입니다.</p>
+
+        <h3>4. 인허가 및 가구 배치 (준공 완료)</h3>
+        <p>공사가 완료되면 소방 시설 완비 증명서 발급을 위한 소방 검사를 받고, 학원 설립 등록을 위한 교육청의 현장 실사를 받습니다. 모든 인허가가 완료되면 가구 및 집기를 배치하고 최종적으로 학원 운영을 시작합니다.</p>
+
+        <h3 style="margin-top:50px;">미술학원 인테리어 FAQ (자주 묻는 질문)</h3>
+
+        <div class="faq-item">
+          <h3>Q1. 소규모 미술학원(10~20평) 인테리어도 가능한가요?</h3>
+          <p>A. 네, 가능합니다. 최근에는 아파트 상가나 주택을 개조한 소규모 학원 인테리어 수요가 높습니다. <strong>소규모 미술학원 인테리어</strong>는 공간 활용의 효율성을 높이고, 간판 대신 독특한 내부 디자인으로 시선을 끄는 것이 중요합니다. 예산에 맞춰 맞춤형 솔루션을 제공해 드립니다.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Q2. 인테리어 시공 기간은 얼마나 걸리나요?</h3>
+          <p>A. 일반적으로 20~30평 규모의 미술학원 인테리어는 디자인 확정 후 공사 착공까지 약 3~4주 정도 소요됩니다. 50평 이상의 대형 학원은 4~6주 이상 소요될 수 있습니다. 디자인 난이도, 마감재 수급 일정, 인허가 절차에 따라 변동될 수 있습니다.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Q3. 예산이 부족할 때 인테리어 비용 절감 팁이 있나요?</h3>
+          <p>A. <strong>저렴한곳</strong>을 찾기 위해선 마감재 등급을 조정하거나, 간판 및 파사드(정면부) 디자인에만 포인트를 주고 내부는 미니멀하게 유지하는 방법이 있습니다. 또한, 기존 인테리어를 최대한 살리며 부분 보수를 하는 것도 좋은 방법입니다. <strong>미술학원 인테리어 비교</strong> 견적을 통해 비싼 항목을 제거하고 가성비 좋은 시공을 진행하는 것이 현명합니다.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="content-section bg-white">
+      <div class="container">
+        <h2>미술학원 인테리어 견적 비교 요청 양식 (체류 시간 증대를 위한 추가 입력란)</h2>
+        <p>더욱 정확하고 상세한 견적을 받아보시려면 아래 항목을 자세히 입력해주세요. (입력 소요 시간 약 2분)</p>
+        <div class="quote-form-box">
+          <form action="#" method="post">
+            <label for="name_detail">성함 (필수)</label>
+            <input type="text" id="name_detail" name="name_detail" placeholder="이름을 입력하세요" required>
+            <label for="phone_detail">연락처 (필수)</label>
+            <input type="tel" id="phone_detail" name="phone_detail" placeholder="휴대폰 번호를 입력하세요" required>
+            <label for="email">이메일 주소</label>
+            <input type="email" id="email" name="email" placeholder="견적서 수신용 이메일 주소">
+
+            <label for="area_detail">시공 희망 지역 (필수)</label>
+            <input type="text" id="area_detail" name="area_detail" placeholder="예: 경기도 수원시 영통구" required>
+
+            <label for="size_detail">공간 평수 (필수)</label>
+            <input type="number" id="size_detail" name="size_detail" placeholder="예: 30평" required>
+
+            <label for="type_detail">운영 희망 학원 유형 (필수)</label>
+            <select id="type_detail" name="type_detail" required>
+                <option value="">학원 유형을 선택하세요</option>
+                <option value="elementary">초등/유아 미술 (친환경, 안전 강조)</option>
+                <option value="exam">입시 미술 (조명, 실용성 강조)</option>
+                <option value="hobby">성인 취미 미술 (카페 분위기 강조)</option>
+                <option value="other">기타</option>
+            </select>
+
+            <label for="budget_detail">예상 총 예산 (선택)</label>
+            <select id="budget_detail" name="budget_detail">
+                <option value="">예산 범위를 선택하세요</option>
+                <option value="under20">2000만원 이하</option>
+                <option value="20-30">2000만원 ~ 3000만원</option>
+                <option value="30-50">3000만원 ~ 5000만원</option>
+                <option value="over50">5000만원 이상</option>
+            </select>
+
+            <label for="message">요청 사항 (원하는 디자인 스타일, 참고 이미지 등)</label>
+            <textarea id="message" name="message" rows="5" placeholder="구체적인 요구사항을 입력하시면 더욱 정확한 견적을 드립니다."></textarea>
+
+            <button type="submit" class="cta-btn">맞춤 견적 요청하기</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+        <h2>신뢰할 수 있는 외부 자료 및 참고 링크</h2>
+        <ul>
+          <li><a href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%ED%95%99%EC%9B%90%EC%84%A4%EB%A6%BD%E3%86%8D%EC%9A%B4%EC%98%81%20%EB%B0%8F%20%EA%B3%BC%EC%99%B8%EA%B5%90%EC%8A%B5%EC%97%90%20%EA%B4%80%ED%95%9C%20%EB%B2%95%EB%A5%A0" target="_blank" rel="noopener">「학원의 설립·운영 및 과외교습에 관한 법률」 (법제처)</a></li>
+          <li><a href="https://www.nfa.go.kr/nfa/publicsafety/firefighting_facilities_standards/" target="_blank" rel="noopener">소방청 - 소방시설법 및 설치기준 안내</a></li>
+          <li><a href="https://www.sbiz.or.kr/main.do" target="_blank" rel="noopener">소상공인시장진흥공단 - 창업 정보 및 지원 사업</a></li>
+          <li><a href="https://ko.wikipedia.org/wiki/%EC%9D%B8%ED%85%8C%EB%A6%AC%EC%96%B4_%EB%94%94%EC%9E%90%EC%9D%B8" target="_blank" rel="noopener">인테리어 디자인 - 위키피디아</a></li>
+          <li><a href="https://namu.wiki/w/%EC%9D%B8%ED%85%8C%EB%A6%AC%EC%96%B4" target="_blank" rel="noopener">인테리어 - 나무위키</a></li>
+          <li><a href="https://www.gov.kr/portal/lawService.do?menuId=2&query=%EC%95%84%EB%8F%99%EC%B6%98%EC%86%8C%EB%85%84%20%EB%B3%B4%ED%98%B8%20%EB%B0%8F%20%EC%A7%80%EC%9B%90%EC%97%90%20%EA%B4%80%ED%95%9C%20%EB%B2%95%EB%A5%A0" target="_blank" rel="noopener">「아동복지법」 및 관련 법령 (교육 시설 안전 기준)</a></li>
+        </ul>
+        <p>위 자료들은 미술학원 인테리어 시공 시 필요한 법적 기준, 안전 규정, 그리고 정부 지원 정책에 대한 정보를 제공합니다.</p>
+      </div>
+    </section>
+
+  </main>
+
+
+  <script>
+    // FAQ 토글 기능
+    document.querySelectorAll('.faq-item h3').forEach(item => {
+      item.addEventListener('click', event => {
+        const parent = item.parentElement;
+        parent.classList.toggle('active');
+      });
+    });
+  </script>
+
+  
